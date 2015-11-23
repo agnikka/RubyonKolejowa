@@ -1,0 +1,22 @@
+ <%= render "users/menu" %>
+
+<table class="table">
+    <thead>
+    	<tr>
+		    <th>Imię</th>
+		    <th>Nazwisko</th>
+		    <th>Data urodzenia</th>
+    	</tr>
+    </thead>
+
+    <tbody>
+        <% @users.each do |user| %>
+    	<tr>
+	    	<td><%= link_to user.imie, user_path(user) %></td>
+	    	<td><%= user.nazwisko %></td>
+	    	<td><%= user.data_ur %></td>
+	    		<td><%= link_to "Edycja", edit_user_path(user) %><%= link_to "D", user_path(user), method: :delete %></td>
+    	</tr>
+    	<% end %>
+    </tbody>
+</table>
